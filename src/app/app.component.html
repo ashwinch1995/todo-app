@@ -7,11 +7,13 @@
         <span class="input-group-text" (click)="addToDo()"><i class="material-icons">add</i></span>
       </div>
     </div>
-  </form>
-
-  <div class="container">
-    <ul class="list-unstyled">
-      <li *ngFor="let todoEl of todoArray">{{todoEl}}</li>
-    </ul>
-  </div>
+    <div class="data">
+      <ul class="list-unstyled">
+        <li *ngFor="let todoEl of todoArray">
+          {{todoEl}}
+          <i class="material-icons" (click)="deleteToDo(todoEl)">delete</i>
+        </li>
+      </ul>
+    </div>
+  </form>  
 </div>

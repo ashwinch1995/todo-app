@@ -9,11 +9,21 @@ export class AppComponent {
   title = 'todo-app';
 
   todo = "";
-  todoArray:any = []
+  todoArray:string[] = []
 
   addToDo() {
     if(this.todo != ""){
       this.todoArray.push(this.todo);
     }
+  }
+
+  deleteToDo(todoItem: string) {
+    for(let i = 0; i < this.todoArray.length; i++)
+    {
+      if(todoItem == this.todoArray[i])
+      {
+        this.todoArray.splice(i, 1);
+      }
+    }    
   }
 }
