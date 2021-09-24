@@ -9,7 +9,7 @@
     </div>
     <div class="data">
       <ul class="list-unstyled">
-        <li *ngFor="let todoEl of todoArray">
+        <li [@moveInLeft] *ngFor="let todoEl of todoArray">
           {{todoEl}}
           <i class="material-icons" (click)="deleteToDo(todoEl)">delete</i>
         </li>
