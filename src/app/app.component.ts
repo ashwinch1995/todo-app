@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,25 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'todo-app';
 
-  todo = "";
+  //todo = "";
+
+  constructor(private fb: FormBuilder) {}
+
+  todoForm = this.fb.group({
+    todo: ['', Validators.required]
+  });
+
   todoArray:string[] = []
 
   addToDo() {
-    if(this.todo != ""){
-      this.todoArray.push(this.todo);
+    let value = this.todoForm.value.todo;
+
+    if(value != ""){
+      this.todoArray.push(value);
+      this.todoForm.reset();
+    }
+    else{
+      alert("Todo field required!");
     }
   }
 
